@@ -25,9 +25,36 @@ $border-accent: var(--border-accent);
 
 // Status colors
 $success: var(--success);
+$success-bg: var(--success-bg);
+$success-border: var(--success-border);
 $warning: var(--warning);
+$warning-bg: var(--warning-bg);
+$warning-border: var(--warning-border);
 $error: var(--error);
+$error-bg: var(--error-bg);
+$error-border: var(--error-border);
 $info: var(--info);
+$info-bg: var(--info-bg);
+$info-border: var(--info-border);
+
+// Difficulty colors
+$difficulty-easy: var(--difficulty-easy);
+$difficulty-easy-bg: var(--difficulty-easy-bg);
+$difficulty-easy-border: var(--difficulty-easy-border);
+$difficulty-medium: var(--difficulty-medium);
+$difficulty-medium-bg: var(--difficulty-medium-bg);
+$difficulty-medium-border: var(--difficulty-medium-border);
+$difficulty-hard: var(--difficulty-hard);
+$difficulty-hard-bg: var(--difficulty-hard-bg);
+$difficulty-hard-border: var(--difficulty-hard-border);
+
+// Type colors
+$type-tutorial-bg: var(--type-tutorial-bg);
+$type-guide-bg: var(--type-guide-bg);
+$type-show-tell-bg: var(--type-show-tell-bg);
+$type-tech-talk-bg: var(--type-tech-talk-bg);
+$type-news-bg: var(--type-news-bg);
+$type-review-bg: var(--type-review-bg);
 
 // Legacy/compatibility colors
 $color-primary: var(--rust-orange);
