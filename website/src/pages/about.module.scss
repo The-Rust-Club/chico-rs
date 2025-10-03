@@ -1,0 +1,300 @@
+// About page styles
+// Variables automatically available via scss_prelude
+
+.page-container {
+  max-width: $container-2xl;
+  margin: 0 auto;
+  padding: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+  }
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+
+  h1 {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-3xl;
+    }
+  }
+}
+
+.page-subtitle {
+  font-size: $font-size-lg;
+  color: $text-secondary;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: $line-height-relaxed;
+}
+
+.about-section {
+  margin-bottom: $spacing-3xl;
+  text-align: center;
+
+  h2 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.mission-text {
+  font-size: $font-size-lg;
+  color: $text-secondary;
+  line-height: $line-height-relaxed;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.what-we-do {
+  margin-bottom: $spacing-3xl;
+
+  h2 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-lg;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.activity-card {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-xl;
+  padding: $spacing-lg;
+  text-align: center;
+  transition: $transition-normal;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+
+  svg {
+    width: 48px;
+    height: 48px;
+    color: $rust-orange;
+    margin-bottom: $spacing-md;
+  }
+
+  h3 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: $text-secondary;
+    line-height: $line-height-relaxed;
+    margin: 0;
+  }
+}
+
+.stats-section {
+  margin-bottom: $spacing-3xl;
+
+  h2 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-lg;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $spacing-sm;
+  }
+}
+
+.stat-card {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  transition: $transition-normal;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.stat-number {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $rust-orange;
+  line-height: 1;
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: $font-size-2xl;
+  }
+}
+
+.stat-label {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  text-align: center;
+  font-weight: $font-weight-medium;
+}
+
+.join-section {
+  background: rgba($rust-orange, 0.05);
+  border: 1px solid rgba($rust-orange, 0.2);
+  border-radius: $radius-xl;
+  padding: $spacing-2xl;
+  text-align: center;
+
+  h2 {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-xl;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-xl $spacing-md;
+  }
+}
+
+.join-buttons {
+  display: flex;
+  gap: $spacing-lg;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+// Button styles specific to about page
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  border: none;
+  border-radius: $radius-lg;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-base;
+  text-decoration: none;
+  cursor: pointer;
+  transition: $transition-fast;
+  line-height: 1;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($rust-orange, 0.3);
+  }
+}
+
+.btn-primary {
+  background-color: $rust-orange;
+  color: white;
+
+  &:hover {
+    background-color: $rust-accent;
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.btn-secondary {
+  background-color: $bg-overlay;
+  color: $text-primary;
+  border: 1px solid $border-secondary;
+
+  &:hover {
+    background-color: rgba($rust-orange, 0.1);
+    border-color: $border-accent;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.btn-large {
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-lg;
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-sm) {
+  .page-container {
+    padding: $spacing-md;
+  }
+
+  .activities-grid {
+    gap: $spacing-md;
+  }
+
+  .activity-card {
+    padding: $spacing-md;
+  }
+
+  .stats-grid {
+    gap: $spacing-md;
+  }
+
+  .stat-card {
+    padding: $spacing-md;
+  }
+
+  .join-section {
+    padding: $spacing-xl $spacing-md;
+  }
+}

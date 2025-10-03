@@ -1,0 +1,21 @@
+name = "chico-rs-api"
+main = "build/worker/shim.mjs"
+compatibility_date = "2024-09-13"
+
+[build]
+command = "worker-build --release"
+
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "eb2364b201e2405b9adf6b622f97e4a7"
+preview_id = "eb2364b201e2405b9adf6b622f97e4a7"  # Using same for now, can create separate preview later
+
+[[d1_databases]]
+binding = "DB"
+database_name = "chico-rs-db"
+database_id = "1e45d902-fdc0-4f78-81a2-3741ff55eb80"
+
+[vars]
+API_VERSION = "v1"
+ENVIRONMENT = "production"

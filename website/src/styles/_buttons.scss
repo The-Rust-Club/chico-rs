@@ -1,0 +1,232 @@
+@use 'variables' as *;
+
+// Button mixins for use in component .module.scss files
+// These provide consistent button styling without creating global classes
+
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  border: none;
+  border-radius: $radius-lg;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-base;
+  text-decoration: none;
+  cursor: pointer;
+  transition: $transition-fast;
+  line-height: 1;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($rust-orange, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+}
+
+// Size mixins
+@mixin btn-sm {
+  padding: $spacing-xs $spacing-md;
+  font-size: $font-size-sm;
+}
+
+@mixin btn-lg {
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-lg;
+}
+
+@mixin btn-xl {
+  padding: $spacing-lg $spacing-2xl;
+  font-size: $font-size-xl;
+}
+
+// Style mixins
+@mixin btn-primary {
+  background-color: $rust-orange;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: $rust-accent;
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin btn-secondary {
+  background-color: $bg-overlay;
+  color: $text-primary;
+  border: 1px solid $border-secondary;
+
+  &:hover:not(:disabled) {
+    background-color: rgba($rust-orange, 0.1);
+    border-color: $border-accent;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin btn-outline {
+  background-color: transparent;
+  color: $rust-orange;
+  border: 2px solid $rust-orange;
+
+  &:hover:not(:disabled) {
+    background-color: $rust-orange;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin btn-ghost {
+  background-color: transparent;
+  color: $text-secondary;
+  border: none;
+
+  &:hover:not(:disabled) {
+    background-color: $bg-overlay;
+    color: $text-primary;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Status button mixins
+@mixin btn-success {
+  background-color: $success;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: darken($success, 10%);
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin btn-warning {
+  background-color: $warning;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: darken($warning, 10%);
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin btn-error {
+  background-color: $error;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: darken($error, 10%);
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Shape mixins
+@mixin btn-rounded {
+  border-radius: $radius-round;
+}
+
+@mixin btn-square {
+  border-radius: 0;
+}
+
+@mixin btn-circle {
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
+
+// Utility mixins
+@mixin btn-block {
+  width: 100%;
+}
+
+@mixin btn-loading {
+  position: relative;
+  color: transparent;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 50%;
+    left: 50%;
+    margin: -0.5rem 0 0 -0.5rem;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-right-color: transparent;
+    animation: btn-loading 0.6s linear infinite;
+  }
+}
+
+@keyframes btn-loading {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Combined mixin for common button patterns
+@mixin btn($variant: primary, $size: null) {
+  @include btn-base;
+
+  @if $variant == primary {
+    @include btn-primary;
+  } @else if $variant == secondary {
+    @include btn-secondary;
+  } @else if $variant == outline {
+    @include btn-outline;
+  } @else if $variant == ghost {
+    @include btn-ghost;
+  } @else if $variant == success {
+    @include btn-success;
+  } @else if $variant == warning {
+    @include btn-warning;
+  } @else if $variant == error {
+    @include btn-error;
+  }
+
+  @if $size == sm {
+    @include btn-sm;
+  } @else if $size == lg {
+    @include btn-lg;
+  } @else if $size == xl {
+    @include btn-xl;
+  }
+}

@@ -1,0 +1,4 @@
+/dist
+
+# Stylance generated files
+src/styles/bundled.scss

@@ -1,0 +1,327 @@
+// Badge and tag component styles
+// Variables automatically available via scss_prelude
+
+// Base badge styles
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-round;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+// Badge sizes
+.badge-sm {
+  padding: 2px $spacing-xs;
+  font-size: 0.6rem;
+}
+
+.badge-md {
+  // Default size - already applied in .badge
+}
+
+.badge-lg {
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-sm;
+}
+
+// Badge variants
+.badge-primary {
+  background-color: $rust-orange;
+  color: white;
+}
+
+.badge-secondary {
+  background-color: $bg-overlay;
+  color: $text-primary;
+  border: 1px solid $border-secondary;
+}
+
+.badge-success {
+  background-color: $success-bg;
+  color: $success;
+  border: 1px solid $success-border;
+}
+
+.badge-warning {
+  background-color: $warning-bg;
+  color: $warning;
+  border: 1px solid $warning-border;
+}
+
+.badge-error {
+  background-color: $error-bg;
+  color: $error;
+  border: 1px solid $error-border;
+}
+
+.badge-info {
+  background-color: $info-bg;
+  color: $info;
+  border: 1px solid $info-border;
+}
+
+.badge-outline {
+  background-color: transparent;
+  color: $rust-orange;
+  border: 1px solid $rust-orange;
+}
+
+// Difficulty badges
+.difficulty-badge {
+  // Base styles already applied via .badge
+
+  &.difficulty-easy {
+    background-color: $difficulty-easy-bg;
+    color: $difficulty-easy;
+    border: 1px solid $difficulty-easy-border;
+  }
+
+  &.difficulty-medium {
+    background-color: $difficulty-medium-bg;
+    color: $difficulty-medium;
+    border: 1px solid $difficulty-medium-border;
+  }
+
+  &.difficulty-hard {
+    background-color: $difficulty-hard-bg;
+    color: $difficulty-hard;
+    border: 1px solid $difficulty-hard-border;
+  }
+}
+
+// Individual difficulty classes
+.difficulty-easy {
+  background-color: $difficulty-easy-bg;
+  color: $difficulty-easy;
+  border: 1px solid $difficulty-easy-border;
+}
+
+.difficulty-medium {
+  background-color: $difficulty-medium-bg;
+  color: $difficulty-medium;
+  border: 1px solid $difficulty-medium-border;
+}
+
+.difficulty-hard {
+  background-color: $difficulty-hard-bg;
+  color: $difficulty-hard;
+  border: 1px solid $difficulty-hard-border;
+}
+
+// Post type badges
+.post-type-badge {
+  color: white;
+
+  &.type-tutorial {
+    background: $type-tutorial-bg;
+  }
+
+  &.type-guide {
+    background: $type-guide-bg;
+  }
+
+  &.type-show-and-tell {
+    background: $type-show-tell-bg;
+  }
+
+  &.type-tech-talk {
+    background: $type-tech-talk-bg;
+  }
+
+  &.type-news {
+    background: $type-news-bg;
+  }
+
+  &.type-review {
+    background: $type-review-bg;
+  }
+}
+
+// Individual post type classes
+.type-tutorial {
+  background: $type-tutorial-bg;
+}
+
+.type-guide {
+  background: $type-guide-bg;
+}
+
+.type-show-and-tell {
+  background: $type-show-tell-bg;
+}
+
+.type-tech-talk {
+  background: $type-tech-talk-bg;
+}
+
+.type-news {
+  background: $type-news-bg;
+}
+
+.type-review {
+  background: $type-review-bg;
+}
+
+// Tags
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  transition: $transition-fast;
+  line-height: 1;
+  white-space: nowrap;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+// Tag variants
+.tag-default {
+  background-color: rgba($rust-orange, 0.1);
+  color: $rust-orange;
+  border: 1px solid $border-secondary;
+
+  &:hover {
+    background-color: rgba($rust-orange, 0.2);
+    border-color: $border-accent;
+  }
+}
+
+.tag-outline {
+  background-color: transparent;
+  color: $rust-orange;
+  border: 1px solid $rust-orange;
+
+  &:hover {
+    background-color: rgba($rust-orange, 0.1);
+  }
+}
+
+.tag-solid {
+  background-color: $rust-orange;
+  color: white;
+  border: 1px solid $rust-orange;
+
+  &:hover {
+    background-color: $rust-accent;
+  }
+}
+
+.tag-ghost {
+  background-color: transparent;
+  color: $text-secondary;
+  border: none;
+
+  &:hover {
+    color: $rust-orange;
+    background-color: rgba($rust-orange, 0.1);
+  }
+}
+
+// Badge groups
+.badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  align-items: center;
+}
+
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  align-items: center;
+}
+
+// Notification dots
+.badge-dot {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -$spacing-xs;
+    right: -$spacing-xs;
+    width: 8px;
+    height: 8px;
+    background-color: $error;
+    border-radius: 50%;
+    border: 2px solid $bg-primary;
+  }
+}
+
+// Badge with counts
+.badge-count {
+  position: relative;
+
+  &::after {
+    content: attr(data-count);
+    position: absolute;
+    top: -$spacing-xs;
+    right: -$spacing-xs;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $error;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: $font-weight-bold;
+    line-height: 1;
+    padding: 0 4px;
+    border: 2px solid $bg-primary;
+  }
+
+  &[data-count="0"]::after {
+    display: none;
+  }
+}
+
+// Interactive badges
+.badge-button {
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: $shadow-sm;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Removable badges
+.badge-removable {
+  padding-right: $spacing-lg;
+  position: relative;
+
+  &::after {
+    content: '×';
+    position: absolute;
+    right: $spacing-xs;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,191 @@
+// Shared Styles for Chico Rust Club
+// Import order matters - variables first, then components that use them
+
+// Core variables and functions
+@use 'variables';
+
+// Layout and utility classes
+@use 'layout';
+
+// Note: Button and badge styles are NOT imported globally
+// They should be used in individual .module.scss files via mixins or variables
+
+// CSS Custom Properties for runtime theming
+:root {
+  // Colors
+  --rust-orange: #ce4e1b;
+  --rust-accent: #e85d2b;
+  --rust-dark: #8b3215;
+  --rust-light: #f4a77c;
+
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #161616;
+  --bg-card: #1a1a1a;
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #999999;
+  --text-inverse: #000000;
+
+  --border-primary: #333333;
+  --border-secondary: #555555;
+  --border-accent: #ce4e1b;
+
+  // Status colors
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+}
+
+// Base styles that don't conflict with component scoping
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: #{variables.$line-height-normal};
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Global link styles
+a {
+  color: var(--rust-orange);
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--rust-accent);
+    text-decoration: underline;
+  }
+}
+
+// Global heading styles
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5, h6 {
+  font-size: 1rem;
+}
+
+// Global paragraph styles
+p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Global list styles
+ul, ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+
+  li {
+    margin-bottom: 0.25rem;
+  }
+}
+
+// Code styles
+code {
+  background-color: rgba(206, 78, 27, 0.1);
+  color: var(--rust-orange);
+  padding: 2px 0.25rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.9em;
+}
+
+pre {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+
+  code {
+    background: none;
+    color: var(--text-primary);
+    padding: 0;
+  }
+}
+
+// Selection styles
+::selection {
+  background-color: rgba(206, 78, 27, 0.3);
+  color: var(--text-primary);
+}
+
+// Scrollbar styles
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rust-orange);
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--rust-accent);
+  }
+}
+
+// Focus styles
+:focus-visible {
+  outline: 2px solid var(--rust-orange);
+  outline-offset: 2px;
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+  }

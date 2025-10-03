@@ -1,0 +1,472 @@
+// Projects page styles
+// Variables automatically available via scss_prelude
+
+.page-container {
+  max-width: $container-2xl;
+  margin: 0 auto;
+  padding: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+  }
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+
+  h1 {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-3xl;
+    }
+  }
+}
+
+.page-subtitle {
+  font-size: $font-size-lg;
+  color: $text-secondary;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: $line-height-relaxed;
+}
+
+// Projects Showcase
+.projects-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: $spacing-xl;
+  margin-bottom: $spacing-3xl;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: $spacing-lg;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.project-card {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-xl;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  transition: $transition-normal;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-4px);
+    box-shadow: $shadow-rust;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg;
+  }
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $spacing-md;
+  margin-bottom: $spacing-sm;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+}
+
+.project-name {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  line-height: $line-height-tight;
+  margin: 0;
+  flex: 1;
+}
+
+.status-badge {
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-round;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+
+  &.status-active {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+  }
+
+  &.status-in-development {
+    background: rgba(255, 193, 7, 0.2);
+    color: #FFC107;
+    border: 1px solid #FFC107;
+  }
+
+  &.status-planning {
+    background: rgba(33, 150, 243, 0.2);
+    color: #2196F3;
+    border: 1px solid #2196F3;
+  }
+
+  &.status-beta {
+    background: rgba(156, 39, 176, 0.2);
+    color: #9C27B0;
+    border: 1px solid #9C27B0;
+  }
+
+  &.status-completed {
+    background: rgba(96, 125, 139, 0.2);
+    color: #607D8B;
+    border: 1px solid #607D8B;
+  }
+}
+
+.project-description {
+  color: $text-secondary;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.tech-stack {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin: $spacing-md 0;
+}
+
+.stack-label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+}
+
+.tech-tags {
+  display: flex;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+}
+
+.tech-tag {
+  background: rgba($rust-orange, 0.1);
+  color: $rust-orange;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-md;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  border: 1px solid rgba($rust-orange, 0.3);
+}
+
+.contributors-section {
+  margin: $spacing-md 0;
+}
+
+.contributors-needed {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.need-badge {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  background: rgba($rust-orange, 0.1);
+  color: $rust-orange;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-lg;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  border: 1px solid rgba($rust-orange, 0.3);
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.skills-needed {
+  display: flex;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+}
+
+.skill-tag {
+  background: rgba($info, 0.1);
+  color: $info;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  border: 1px solid rgba($info, 0.3);
+}
+
+.project-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-md;
+  padding-top: $spacing-md;
+  border-top: 1px solid $border-secondary;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+.action-buttons {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+// Contribution Guide Section
+.contribution-guide {
+  margin-bottom: $spacing-3xl;
+
+  h2 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.guide-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.step-card {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-xl;
+  padding: $spacing-lg;
+  text-align: center;
+  transition: $transition-normal;
+  position: relative;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: $rust-orange;
+  color: white;
+  border-radius: 50%;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  margin: 0 auto $spacing-md;
+}
+
+.step-card h3 {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.step-card p {
+  color: $text-secondary;
+  line-height: $line-height-relaxed;
+  margin: 0;
+}
+
+// Project Ideas Section
+.project-ideas {
+  background: rgba($rust-orange, 0.05);
+  border: 1px solid rgba($rust-orange, 0.2);
+  border-radius: $radius-xl;
+  padding: $spacing-2xl;
+  text-align: center;
+
+  h2 {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-xl;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-xl $spacing-md;
+  }
+}
+
+.idea-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+}
+
+.idea-card {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  transition: $transition-normal;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  h4 {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $rust-orange;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    margin: 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
+  }
+}
+
+// Button styles specific to projects page
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  border: none;
+  border-radius: $radius-lg;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-base;
+  text-decoration: none;
+  cursor: pointer;
+  transition: $transition-fast;
+  line-height: 1;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($rust-orange, 0.3);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
+.btn-primary {
+  background-color: $rust-orange;
+  color: white;
+
+  &:hover {
+    background-color: $rust-accent;
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.btn-secondary {
+  background-color: $bg-overlay;
+  color: $text-primary;
+  border: 1px solid $border-secondary;
+
+  &:hover {
+    background-color: rgba($rust-orange, 0.1);
+    border-color: $border-accent;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.btn-large {
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-lg;
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-sm) {
+  .page-container {
+    padding: $spacing-md;
+  }
+
+  .projects-showcase {
+    gap: $spacing-md;
+  }
+
+  .project-card {
+    padding: $spacing-md;
+  }
+
+  .guide-steps {
+    gap: $spacing-md;
+  }
+
+  .step-card {
+    padding: $spacing-md;
+  }
+
+  .idea-categories {
+    gap: $spacing-md;
+  }
+
+  .idea-card {
+    padding: $spacing-md;
+  }
+
+  .project-ideas {
+    padding: $spacing-xl $spacing-md;
+  }
+}

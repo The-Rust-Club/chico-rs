@@ -1,0 +1,157 @@
+// Global CSS variables and base styles
+:root {
+  --rust-orange: #CE422B;
+  --rust-brown: #8B4513;
+  --rust-dark: #2A1810;
+  --rust-light: #FFE4C4;
+  --rust-accent: #FF6B35;
+  --bg-primary: #1A1A1A;
+  --bg-secondary: #2D2D2D;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B0B0B0;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --info: #2196F3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+html {
+  background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+}
+
+// For webkit browsers (Safari, Chrome) - fix overscroll background
+body {
+  // Ensure body extends full height
+  min-height: 100vh;
+  // Add overscroll background color
+  background-attachment: fixed;
+}
+
+// Common layout classes
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: calc(100vh - 80px);
+}
+
+// Mobile-specific overscroll fixes
+@media (max-width: 768px) {
+  // Prevent elastic scrolling on mobile
+  html, body {
+    overscroll-behavior-y: none; // Vertical scrolling
+    overscroll-behavior-x: none; // Horizontal scrolling
+  }
+  
+  // iOS Safari specific - prevents bounce
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+}
+
+// Webkit-specific (Chrome, Safari, Edge) overscroll color
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  html {
+    background-color: #1A1A1A !important;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%) fixed;
+  }
+}
+
+// Fallback for any overscroll areas
+::backdrop {
+  background-color: #1A1A1A;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--rust-orange);
+    margin-bottom: 1rem;
+  }
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.main-content {
+  padding-top: 0;
+}
+
+// Common button styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--rust-orange) 0%, var(--rust-accent) 100%);
+  color: white;
+
+  &:hover {
+    box-shadow: 0 8px 25px rgba(206, 66, 43, 0.3);
+  }
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--rust-orange);
+  }
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}

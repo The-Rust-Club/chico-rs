@@ -1,0 +1,106 @@
+// SCSS Variables
+
+// Core colors
+$rust-orange: var(--rust-orange);
+$rust-accent: var(--rust-accent);
+$rust-dark: var(--rust-dark);
+$rust-light: var(--rust-light);
+
+// Background colors
+$bg-primary: var(--bg-primary);
+$bg-secondary: var(--bg-secondary);
+$bg-card: var(--bg-card);
+$bg-overlay: var(--bg-overlay);
+
+// Text colors
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+$text-muted: var(--text-muted);
+$text-inverse: var(--text-inverse);
+
+// Border colors
+$border-primary: var(--border-primary);
+$border-secondary: var(--border-secondary);
+$border-accent: var(--border-accent);
+
+// Status colors
+$success: var(--success);
+$warning: var(--warning);
+$error: var(--error);
+$info: var(--info);
+
+// Legacy/compatibility colors
+$color-primary: var(--rust-orange);
+$color-accent: var(--rust-orange);
+$color-text: var(--text-primary);
+$color-text-muted: var(--text-secondary);
+$color-border: rgba(255, 255, 255, 0.2);
+$color-surface: var(--bg-secondary);
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
+
+// Border radius
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-2xl: 20px;
+$radius-round: 50px;
+
+// Breakpoints
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
+
+// Container sizes
+$container-sm: 576px;
+$container-md: 768px;
+$container-lg: 1200px;
+$container-xl: 1400px;
+$container-2xl: 1600px;
+
+// Font sizes
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 1.875rem;
+$font-size-4xl: 2.25rem;
+$font-size-5xl: 3rem;
+$font-size-6xl: 3.75rem;
+
+// Font weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+// Line heights
+$line-height-base: 1.5;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+$line-height-tight: 1.25;
+
+// Transitions
+$transition-fast: all 0.2s ease;
+$transition-normal: all 0.3s ease;
+
+// Shadows
+$shadow-rust: 0 4px 12px rgba(206, 78, 27, 0.15);
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);

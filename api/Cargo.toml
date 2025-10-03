@@ -1,0 +1,27 @@
+[package]
+name = "api"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+worker = { version = "0.4", features = ["d1"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+utoipa = { version = "5.0", features = ["chrono", "uuid"] }
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["serde", "v4", "js"] }
+anyhow = "1.0"
+console_error_panic_hook = "0.1"
+shared = { path = "../shared", features = ["openapi"] }
+
+[dependencies.web-sys]
+version = "0.3"
+features = [
+  "console",
+]
+
+[dependencies.wasm-bindgen]
+version = "0.2"

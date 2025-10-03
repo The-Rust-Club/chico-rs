@@ -1,0 +1,440 @@
+// Open Source page styles
+// Variables automatically available via scss_prelude
+
+.page-container {
+  max-width: $container-2xl;
+  margin: 0 auto;
+  padding: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+  }
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+
+  h1 {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-3xl;
+    }
+  }
+}
+
+.page-subtitle {
+  font-size: $font-size-lg;
+  color: $text-secondary;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: $line-height-relaxed;
+}
+
+// Filters Section
+.filters-section {
+  margin-bottom: $spacing-2xl;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.filter-chips {
+  display: flex;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media (max-width: $breakpoint-sm) {
+    gap: $spacing-xs;
+  }
+}
+
+.chip {
+  padding: $spacing-sm $spacing-lg;
+  border: 1px solid $border-secondary;
+  background: $bg-overlay;
+  color: $text-secondary;
+  border-radius: $radius-round;
+  cursor: pointer;
+  transition: $transition-fast;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+
+  &:hover {
+    border-color: $rust-orange;
+    color: $rust-orange;
+    background: rgba($rust-orange, 0.1);
+    transform: translateY(-1px);
+  }
+
+  &.chip-active {
+    background: $rust-orange;
+    color: white;
+    border-color: $rust-orange;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-xs;
+  }
+}
+
+// Issues Grid
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: $spacing-xl;
+  margin-bottom: $spacing-3xl;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: $spacing-lg;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.issue-card {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-xl;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  transition: $transition-normal;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-4px);
+    box-shadow: $shadow-rust;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
+  }
+}
+
+.issue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xs;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-xs;
+  }
+}
+
+.difficulty-badge {
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-round;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &.difficulty-easy {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+  }
+
+  &.difficulty-medium {
+    background: rgba(255, 193, 7, 0.2);
+    color: #FFC107;
+    border: 1px solid #FFC107;
+  }
+
+  &.difficulty-hard {
+    background: rgba(244, 67, 54, 0.2);
+    color: #F44336;
+    border: 1px solid #F44336;
+  }
+}
+
+.repo-name {
+  font-size: $font-size-sm;
+  color: $text-muted;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+  background: rgba($text-muted, 0.1);
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-md;
+}
+
+.issue-title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  line-height: $line-height-tight;
+  margin: 0;
+}
+
+.issue-description {
+  color: $text-secondary;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.issue-tags {
+  display: flex;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+  margin: $spacing-sm 0;
+}
+
+.tag {
+  background: rgba($rust-orange, 0.1);
+  color: $rust-orange;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-md;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  border: 1px solid rgba($rust-orange, 0.3);
+}
+
+.issue-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-md;
+  padding-top: $spacing-sm;
+  border-top: 1px solid $border-secondary;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+.issue-link {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  color: $rust-orange;
+  text-decoration: none;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  transition: $transition-fast;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    color: $rust-accent;
+    transform: translateX(2px);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    align-self: flex-start;
+  }
+}
+
+.claim-btn {
+  padding: $spacing-sm $spacing-lg;
+  background: rgba($rust-orange, 0.1);
+  color: $rust-orange;
+  border: 1px solid $rust-orange;
+  border-radius: $radius-lg;
+  cursor: pointer;
+  transition: $transition-fast;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+
+  &:hover {
+    background: $rust-orange;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
+// Tips Section
+.tips-section {
+  margin-bottom: $spacing-3xl;
+
+  h2 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-lg;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.tip-card {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-xl;
+  padding: $spacing-lg;
+  transition: $transition-normal;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+
+  h3 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $rust-orange;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: $text-secondary;
+    line-height: $line-height-relaxed;
+    margin: 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
+  }
+}
+
+// Contribution Tracker Section
+.contribution-tracker {
+  background: rgba($rust-orange, 0.05);
+  border: 1px solid rgba($rust-orange, 0.2);
+  border-radius: $radius-xl;
+  padding: $spacing-2xl;
+  text-align: center;
+
+  h2 {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    margin-bottom: $spacing-2xl;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-xl $spacing-md;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $spacing-sm;
+  }
+}
+
+.stat-card {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  transition: $transition-normal;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
+  }
+}
+
+.stat-number {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $rust-orange;
+  line-height: 1;
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: $font-size-2xl;
+  }
+}
+
+.stat-label {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  text-align: center;
+  font-weight: $font-weight-medium;
+}
+
+.stats-note {
+  color: $text-secondary;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-sm) {
+  .page-container {
+    padding: $spacing-md;
+  }
+
+  .issues-grid {
+    gap: $spacing-md;
+  }
+
+  .issue-card {
+    padding: $spacing-md;
+  }
+
+  .tips-grid {
+    gap: $spacing-md;
+  }
+
+  .tip-card {
+    padding: $spacing-md;
+  }
+}

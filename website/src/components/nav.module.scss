@@ -1,0 +1,212 @@
+// Navigation component styles
+// Variables automatically available via scss_prelude
+
+.navbar {
+  background: rgba($bg-primary, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid $rust-orange;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: $spacing-md 0;
+}
+
+.nav-container {
+  max-width: $container-2xl;
+  margin: 0 auto;
+  padding: 0 $spacing-xl;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  color: $rust-orange;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  text-decoration: none;
+  transition: $transition-normal;
+
+  &:hover {
+    color: $rust-accent;
+  }
+
+  svg {
+    width: $spacing-xl;
+    height: $spacing-xl;
+  }
+}
+
+.nav-title {
+  color: inherit;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: $spacing-xl;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  color: $text-secondary;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  padding: $spacing-sm 0;
+  position: relative;
+  transition: $transition-normal;
+
+  &:hover {
+    color: $rust-orange;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $rust-orange;
+    transition: $transition-normal;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// Mobile menu button
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: $text-secondary;
+  cursor: pointer;
+  padding: $spacing-sm;
+  border-radius: $radius-md;
+  transition: $transition-normal;
+
+  &:hover {
+    background-color: rgba($rust-orange, 0.1);
+    color: $rust-orange;
+  }
+
+  svg {
+    width: $spacing-lg;
+    height: $spacing-lg;
+  }
+}
+
+// Mobile menu overlay
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($bg-primary, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+
+  &.mobile-menu-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Mobile menu
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: $spacing-lg;
+}
+
+.mobile-nav-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInUp 0.4s ease forwards;
+
+  // Stagger the animations
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.15s; }
+  &:nth-child(3) { animation-delay: 0.2s; }
+  &:nth-child(4) { animation-delay: 0.25s; }
+  &:nth-child(5) { animation-delay: 0.3s; }
+  &:nth-child(6) { animation-delay: 0.35s; }
+  &:nth-child(7) { animation-delay: 0.4s; }
+  &:nth-child(8) { animation-delay: 0.45s; }
+}
+
+.mobile-nav-link {
+  color: $text-primary;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-2xl;
+  padding: $spacing-md $spacing-lg;
+  border-radius: $radius-lg;
+  transition: $transition-normal;
+  display: block;
+  text-align: center;
+
+  &:hover {
+    color: $rust-orange;
+    background-color: rgba($rust-orange, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: $breakpoint-md) {
+  .nav-container {
+    justify-content: space-between;
+    padding: 0 $spacing-md;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .nav-logo {
+    font-size: $font-size-lg;
+
+    svg {
+      width: $spacing-lg;
+      height: $spacing-lg;
+    }
+  }
+}
+
+// Prevent body scroll when mobile menu is open
+body.mobile-menu-open {
+  overflow: hidden;
+}

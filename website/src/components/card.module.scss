@@ -1,0 +1,236 @@
+// Reusable card component styles
+// Variables automatically available via scss_prelude
+
+// Base card styles
+.card {
+  background: $bg-card;
+  border-radius: $radius-xl;
+  padding: $spacing-lg;
+  border: 1px solid $border-primary;
+  transition: $transition-normal;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-2px);
+    border-color: $border-accent;
+    box-shadow: $shadow-rust;
+  }
+}
+
+// Card variants
+.card-default {
+  // Default styling - already applied in .card
+}
+
+.card-featured {
+  border-color: $rust-orange;
+  box-shadow: $shadow-lg;
+  
+  &:hover {
+    box-shadow: $shadow-xl, 0 0 20px rgba($rust-orange, 0.3);
+  }
+}
+
+.card-compact {
+  padding: $spacing-md;
+  border-radius: $radius-lg;
+}
+
+// Card sizes
+.card-sm {
+  padding: $spacing-md;
+  border-radius: $radius-lg;
+  
+  .card-title {
+    font-size: $font-size-base;
+  }
+  
+  .card-text {
+    font-size: $font-size-sm;
+  }
+}
+
+.card-md {
+  // Default size - already applied in .card
+}
+
+.card-lg {
+  padding: $spacing-xl;
+  border-radius: $radius-2xl;
+  
+  .card-title {
+    font-size: $font-size-2xl;
+  }
+  
+  .card-text {
+    font-size: $font-size-lg;
+  }
+}
+
+// Card elevation
+.card-elevated {
+  box-shadow: $shadow-lg;
+  
+  &:hover {
+    box-shadow: $shadow-xl;
+  }
+}
+
+// Card sections
+.card-header {
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1px solid rgba($border-primary, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.card-footer {
+  margin-top: $spacing-md;
+  padding-top: $spacing-sm;
+  border-top: 1px solid rgba($border-primary, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+// Card content
+.card-title {
+  color: $text-primary;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-xl;
+  line-height: $line-height-tight;
+  margin: 0;
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+    
+    &:hover {
+      color: $rust-orange;
+    }
+  }
+}
+
+.card-text {
+  color: $text-secondary;
+  line-height: $line-height-relaxed;
+  margin: 0;
+  
+  &:not(:last-child) {
+    margin-bottom: $spacing-sm;
+  }
+}
+
+// Responsive design
+@media (max-width: $breakpoint-sm) {
+  .card {
+    padding: $spacing-md;
+    border-radius: $radius-lg;
+  }
+  
+  .card-lg {
+    padding: $spacing-lg;
+  }
+  
+  .card-header,
+  .card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+// Special card layouts
+.card-horizontal {
+  flex-direction: row;
+  align-items: center;
+  
+  .card-body {
+    flex: 1;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+  }
+}
+
+.card-image-top {
+  padding: 0;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: $radius-xl $radius-xl 0 0;
+  }
+  
+  .card-header,
+  .card-body,
+  .card-footer {
+    padding: $spacing-lg;
+  }
+  
+  .card-header {
+    padding-bottom: $spacing-sm;
+  }
+  
+  .card-footer {
+    padding-top: $spacing-sm;
+  }
+}
+
+// Card groups
+.card-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-lg;
+  
+  .card {
+    flex: 1;
+    min-width: 280px;
+  }
+}
+
+.card-deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-lg;
+}
+
+// Card overlays for images
+.card-overlay {
+  position: relative;
+  color: white;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba($rust-dark, 0.8), rgba($rust-orange, 0.6));
+    border-radius: inherit;
+  }
+  
+  .card-header,
+  .card-body,
+  .card-footer {
+    position: relative;
+    z-index: 1;
+  }
+}

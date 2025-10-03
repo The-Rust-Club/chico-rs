@@ -1,0 +1,703 @@
+// Advocacy page styles
+// Variables automatically available via scss_prelude
+
+.page-container {
+  max-width: $container-2xl;
+  margin: 0 auto;
+  padding: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+  }
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+
+  h1 {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-3xl;
+    }
+  }
+}
+
+.page-subtitle {
+  font-size: $font-size-lg;
+  color: $text-secondary;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: $line-height-relaxed;
+}
+
+// Petition Hero Section
+.petition-hero {
+  background: rgba($rust-orange, 0.05);
+  border: 2px solid rgba($rust-orange, 0.2);
+  border-radius: $radius-xl;
+  padding: $spacing-2xl;
+  margin-bottom: $spacing-3xl;
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl;
+  }
+}
+
+.petition-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+
+  h2 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    margin-bottom: $spacing-xl;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-2xl;
+    }
+  }
+}
+
+.petition-text {
+  text-align: left;
+  margin-bottom: $spacing-2xl;
+
+  p {
+    color: $text-secondary;
+    font-size: $font-size-lg;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-lg;
+  }
+
+  h3 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 $spacing-xl 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-sm;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+
+  li {
+    padding: $spacing-sm $spacing-md;
+    background: rgba($rust-orange, 0.1);
+    border-left: 4px solid $rust-orange;
+    border-radius: $radius-md;
+    color: $text-secondary;
+    transition: $transition-fast;
+
+    &:hover {
+      background: rgba($rust-orange, 0.15);
+      color: $text-primary;
+    }
+
+    &::before {
+      content: "✓";
+      color: $rust-orange;
+      font-weight: $font-weight-bold;
+      margin-right: $spacing-sm;
+    }
+  }
+}
+
+.petition-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
+.stat-card {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  transition: $transition-normal;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &.primary {
+    border-color: $rust-orange;
+    background: rgba($rust-orange, 0.05);
+    
+    .stat-number {
+      color: $rust-orange;
+    }
+  }
+
+  &.success {
+    border-color: $success;
+    background: rgba($success, 0.05);
+    
+    .stat-number {
+      color: $success;
+    }
+  }
+}
+
+.stat-number {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  line-height: 1;
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: $font-size-2xl;
+  }
+}
+
+.stat-label {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  text-align: center;
+  font-weight: $font-weight-medium;
+}
+
+// Courses Section
+.courses-section {
+  margin-bottom: $spacing-3xl;
+
+  h2 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.courses-table {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-xl;
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  background: rgba($rust-orange, 0.1);
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  border-bottom: 1px solid $border-primary;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    font-size: $font-size-sm;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  align-items: center;
+  border-bottom: 1px solid $border-secondary;
+  transition: $transition-fast;
+
+  &:hover {
+    background: rgba($rust-orange, 0.05);
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: $spacing-sm;
+    padding: $spacing-md;
+  }
+}
+
+.course-info {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.course-code {
+  font-weight: $font-weight-semibold;
+  color: $rust-orange;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+}
+
+.course-name {
+  color: $text-primary;
+  font-size: $font-size-sm;
+}
+
+.department {
+  color: $text-secondary;
+  font-size: $font-size-sm;
+
+  @media (max-width: $breakpoint-md) {
+    font-weight: $font-weight-medium;
+    margin-top: $spacing-xs;
+  }
+}
+
+.status {
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-round;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  white-space: nowrap;
+
+  &.status-approved {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+  }
+
+  &.status-under-review {
+    background: rgba(255, 193, 7, 0.2);
+    color: #FFC107;
+    border: 1px solid #FFC107;
+  }
+
+  &.status-pending {
+    background: rgba(33, 150, 243, 0.2);
+    color: #2196F3;
+    border: 1px solid #2196F3;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    align-self: flex-start;
+    margin-top: $spacing-xs;
+  }
+}
+
+.supporters {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  justify-content: center;
+
+  @media (max-width: $breakpoint-md) {
+    justify-content: flex-start;
+    margin-top: $spacing-xs;
+  }
+}
+
+.supporter-count {
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+}
+
+.support-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: $rust-orange;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  transition: $transition-fast;
+
+  &:hover {
+    background: $rust-accent;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Arguments Section
+.arguments-section {
+  margin-bottom: $spacing-3xl;
+
+  h2 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.arguments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-lg;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.argument-card {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-xl;
+  padding: $spacing-lg;
+  transition: $transition-normal;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+
+  h3 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $rust-orange;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: $text-secondary;
+    line-height: $line-height-relaxed;
+    margin: 0;
+  }
+}
+
+// Success Stories Section
+.success-stories {
+  margin-bottom: $spacing-3xl;
+
+  h2 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.story-card {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-xl;
+  padding: $spacing-xl;
+  transition: $transition-normal;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+
+  &.success {
+    border-color: $success;
+    background: rgba($success, 0.03);
+  }
+
+  p {
+    color: $text-secondary;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.story-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+  gap: $spacing-md;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+
+  h3 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin: 0;
+  }
+}
+
+.success-badge {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-md;
+  background: rgba($success, 0.2);
+  color: $success;
+  border: 1px solid $success;
+  border-radius: $radius-round;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.story-stats {
+  display: flex;
+  gap: $spacing-lg;
+  font-size: $font-size-sm;
+  color: $text-muted;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  span {
+    &::after {
+      content: "•";
+      margin: 0 $spacing-sm;
+      color: $border-primary;
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+  }
+}
+
+// How to Help Section
+.how-to-help {
+  margin-bottom: $spacing-3xl;
+
+  h2 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.help-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.help-card {
+  background: $bg-card;
+  border: 1px solid $border-primary;
+  border-radius: $radius-xl;
+  padding: $spacing-lg;
+  text-align: center;
+  transition: $transition-normal;
+
+  &:hover {
+    border-color: $border-accent;
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+
+  svg {
+    width: 48px;
+    height: 48px;
+    color: $rust-orange;
+    margin-bottom: $spacing-md;
+  }
+
+  h3 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: $text-secondary;
+    line-height: $line-height-relaxed;
+    margin: 0;
+  }
+}
+
+// Advocacy CTA Section
+.advocacy-cta {
+  background: rgba($rust-orange, 0.05);
+  border: 1px solid rgba($rust-orange, 0.2);
+  border-radius: $radius-xl;
+  padding: $spacing-2xl;
+  text-align: center;
+
+  h2 {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $rust-orange;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-xl;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-xl $spacing-md;
+  }
+}
+
+.cta-actions {
+  display: flex;
+  gap: $spacing-lg;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+// Button styles specific to advocacy page
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  border: none;
+  border-radius: $radius-lg;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-base;
+  text-decoration: none;
+  cursor: pointer;
+  transition: $transition-fast;
+  line-height: 1;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($rust-orange, 0.3);
+  }
+}
+
+.btn-primary {
+  background-color: $rust-orange;
+  color: white;
+
+  &:hover {
+    background-color: $rust-accent;
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.btn-secondary {
+  background-color: $bg-overlay;
+  color: $text-primary;
+  border: 1px solid $border-secondary;
+
+  &:hover {
+    background-color: rgba($rust-orange, 0.1);
+    border-color: $border-accent;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.btn-large {
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-lg;
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-sm) {
+  .page-container {
+    padding: $spacing-md;
+  }
+
+  .petition-hero {
+    padding: $spacing-xl $spacing-md;
+  }
+
+  .petition-stats {
+    gap: $spacing-md;
+  }
+
+  .arguments-grid {
+    gap: $spacing-md;
+  }
+
+  .argument-card {
+    padding: $spacing-md;
+  }
+
+  .story-card {
+    padding: $spacing-lg;
+  }
+
+  .help-cards {
+    gap: $spacing-md;
+  }
+
+  .help-card {
+    padding: $spacing-md;
+  }
+
+  .advocacy-cta {
+    padding: $spacing-xl $spacing-md;
+  }
+}

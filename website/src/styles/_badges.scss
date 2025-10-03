@@ -1,0 +1,210 @@
+@use 'variables' as *;
+
+// Base badge styles
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-round;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+
+  // Size variants
+  &.badge-sm {
+    padding: 2px $spacing-xs;
+    font-size: 0.6rem;
+  }
+
+  &.badge-lg {
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-sm;
+  }
+}
+
+// Difficulty badges
+.difficulty-badge {
+  @extend .badge;
+
+  &.difficulty-easy {
+    background-color: $difficulty-easy-bg;
+    color: $difficulty-easy;
+    border: 1px solid $difficulty-easy-border;
+  }
+
+  &.difficulty-medium {
+    background-color: $difficulty-medium-bg;
+    color: $difficulty-medium;
+    border: 1px solid $difficulty-medium-border;
+  }
+
+  &.difficulty-hard {
+    background-color: $difficulty-hard-bg;
+    color: $difficulty-hard;
+    border: 1px solid $difficulty-hard-border;
+  }
+}
+
+// Post type badges
+.post-type-badge {
+  @extend .badge;
+  color: white;
+
+  &.type-tutorial {
+    background: $type-tutorial-bg;
+  }
+
+  &.type-guide {
+    background: $type-guide-bg;
+  }
+
+  &.type-show-and-tell {
+    background: $type-show-tell-bg;
+  }
+
+  &.type-tech-talk {
+    background: $type-tech-talk-bg;
+  }
+
+  &.type-news {
+    background: $type-news-bg;
+  }
+
+  &.type-review {
+    background: $type-review-bg;
+  }
+}
+
+// Status badges
+.status-badge {
+  @extend .badge;
+
+  &.status-success {
+    background-color: $success-bg;
+    color: $success;
+    border: 1px solid $success-border;
+  }
+
+  &.status-warning {
+    background-color: $warning-bg;
+    color: $warning;
+    border: 1px solid $warning-border;
+  }
+
+  &.status-error {
+    background-color: $error-bg;
+    color: $error;
+    border: 1px solid $error-border;
+  }
+
+  &.status-info {
+    background-color: $info-bg;
+    color: $info;
+    border: 1px solid $info-border;
+  }
+}
+
+// Priority badges
+.priority-badge {
+  @extend .badge;
+
+  &.priority-low {
+    background-color: rgba($success, 0.1);
+    color: $success;
+    border: 1px solid $success;
+  }
+
+  &.priority-medium {
+    background-color: rgba($warning, 0.1);
+    color: $warning;
+    border: 1px solid $warning;
+  }
+
+  &.priority-high {
+    background-color: rgba($error, 0.1);
+    color: $error;
+    border: 1px solid $error;
+  }
+
+  &.priority-critical {
+    background-color: $error;
+    color: white;
+    border: 1px solid darken($error, 10%);
+  }
+}
+
+// Tag badges (for blog tags, etc.)
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-sm;
+  background-color: rgba($rust-orange, 0.1);
+  color: $rust-orange;
+  border: 1px solid $border-secondary;
+  border-radius: $radius-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  transition: $transition-fast;
+
+  &:hover {
+    background-color: rgba($rust-orange, 0.2);
+    border-color: $border-accent;
+  }
+
+  // Tag variants
+  &.tag-outline {
+    background-color: transparent;
+    border: 1px solid $rust-orange;
+  }
+
+  &.tag-solid {
+    background-color: $rust-orange;
+    color: white;
+    border-color: $rust-orange;
+  }
+
+  &.tag-ghost {
+    background-color: transparent;
+    border: none;
+    color: $text-secondary;
+
+    &:hover {
+      color: $rust-orange;
+    }
+  }
+}
+
+// Notification badges (for counts, etc.)
+.notification-badge {
+  position: relative;
+
+  &::after {
+    content: attr(data-count);
+    position: absolute;
+    top: -$spacing-xs;
+    right: -$spacing-xs;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $error;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: $font-weight-bold;
+    line-height: 1;
+    padding: 0 $spacing-xs;
+
+    // Hide if count is 0 or empty
+    &:empty {
+      display: none;
+    }
+  }
+
+  &[data-count="0"]::after {
+    display: none;
+  }
+}
